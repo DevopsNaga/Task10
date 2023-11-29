@@ -1,0 +1,70 @@
+Connect to your EC2 instance:
+
+ssh -i your-key.pem ec2-user@your-ec2-instance-ip
+
+Update the package index:
+
+sudo yum update -y
+
+Install Docker:
+
+sudo amazon-linux-extras install docker
+sudo service docker start
+sudo usermod -aG docker ec2-user
+
+Logout and log back in:
+
+This is necessary to apply the group changes.
+exit
+
+ssh -i your-key.pem ec2-user@your-ec2-instance-ip
+
+Explore Docker Commands:
+
+Now that Docker is installed, some basic Docker commands.
+
+Check Docker version:
+
+docker --version
+
+List Docker images:
+
+docker images
+
+Run a simple container:
+
+docker run hello-world
+
+This command downloads a test image and runs a container that prints a message.
+
+List running containers:
+
+docker ps
+
+To see all containers (including stopped ones), add the -a flag:
+
+docker ps -a
+
+Pull a Docker image:
+
+docker pull ubuntu
+
+This command downloads the official Ubuntu image from Docker Hub.
+
+Run a container from an image:
+
+docker run -it ubuntu /bin/bash
+
+This starts an interactive Ubuntu container.
+
+Exit a running container:
+
+Inside the container, you can exit by typing exit.
+
+Remove a container:
+
+docker rm container_id_or_name
+
+Remove an image:
+
+docker rmi image_id_or_name
